@@ -1,0 +1,40 @@
+* PROGRAM BY: BRADLEY OAKE 
+* DEFINE MAPSET 
+BOMAP1  DFHMSD TYPE=MAP,                                               X
+               TIOAPFX=YES,                                            X
+               LANG=COBOL,                                             X
+               MODE=INOUT,                                             X
+               TERM=3270-2                                             X
+               STORAGE=AUTO,                                           X
+               MAPATTS=(COLOR,HILIGHT),                                X
+               DSATTS=(COLOR,HILIGHT) 
+* DEFINE MAP1 
+* MAIN MENU OF PROGRAM 
+MAP1    DFHMDI SIZE=(24,80),CTRL=FREEKB 
+        DFHMDF POS=(1,1),LENGTH=4,INITIAL='BRAD', ATTRB=ASKIP 
+        DFHMDF POS=(1,25),LENGTH=18,INITIAL='M A I N    M E N U',      X
+               ATTRB=ASKIP 
+        DFHMDF POS=(2,1),LENGTH=4,INITIAL='OAKE',ATTRB=ASKIP 
+        DFHMDF POS=(2,27),LENGTH=14,INITIAL='==============',          X
+               ATTRB=ASKIP 
+        DFHMDF POS=(5,19),LENGTH=33,                                   X
+               INITIAL='CHOICE 1 (F1) - ENTER NEW INVOICE',ATTRB=ASKIP 
+        DFHMDF POS=(7,11),LENGTH=39,                                   X
+               INITIAL='CHOICE 2 (F2) - VIEW / CHANGE / DELETE ',      X
+               ATTRB=ASKIP 
+        DFHMDF POS=(7,50),LENGTH=16,INITIAL='EXISTING INVOICE',        X
+               ATTRB=ASKIP 
+        DFHMDF POS=(9,14),LENGTH=40,                                   X
+               INITIAL='CHOICE 3 (F3) - SEARCH BY CUSTOMER NAME',      X
+               ATTRB=ASKIP 
+        DFHMDF POS=(9,55),LENGTH=4,INITIAL='NAME',ATTRB=ASKIP 
+        DFHMDF POS=(11,21),LENGTH=32,                                  X
+               INITIAL='CHOICE 4 (F4) - EXIT THIS SCREEN',ATTRB=ASKIP 
+        DFHMDF POS=(14,23),LENGTH=23,                                  X
+               INITIAL='ENTER YOUR CHOICE HERE:',ATTRB=ASKIP 
+* USER INPUT FIELD - SINGLE CHARACTER 
+CHOICE  DFHMDF POS=(14,48),LENGTH=1,ATTRB=(UNPROT,FSET,IC) 
+        DFHMDF POS=(14,50),LENGTH=1,ATTRB=ASKIP 
+* MESSAGE FIELD - DISPLAY MESSAGE TO USER 
+MSG     DFHMDF POS=(18,5),LENGTH=40,ATTRB=(ASKIP,BRT) 
+        DFHMSD TYPE=FINAL 
